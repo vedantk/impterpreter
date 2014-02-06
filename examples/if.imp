@@ -1,0 +1,5 @@
+if !false then
+   a := 1
+else
+   skip
+fi
