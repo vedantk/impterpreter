@@ -6,13 +6,6 @@ iter := 0;
 while iter <= target do
 	tmp := a;
 	a := b;
-	b := tmp + b
-done;
-
-if b <= 1000 then
-	skip
-else
-	while (!false) do
-		skip
-	done
-fi
+	b := tmp + b;
+	iter := iter + 1
+done

@@ -20,7 +20,7 @@ main:
 
 aexp:
         INT                     { Printf.sprintf "(IntConst %d)" $1 }
-      | VAR                     { Printf.sprintf "(Var %s)" $1 }
+      | VAR                     { Printf.sprintf "(Var \"%s\")" $1 }
       | aexp PLUS aexp          { Printf.sprintf "(Plus (%s,%s))" $1 $3 }
       | aexp MINUS aexp         { Printf.sprintf "(Minus (%s,%s))" $1 $3 }
       | aexp TIMES aexp         { Printf.sprintf "(Times (%s,%s))" $1 $3 }
@@ -40,7 +40,7 @@ bexp:
 
 comm:
         SKIP                    { "(Skip)" }
-      | VAR ASSIGN aexp         { Printf.sprintf "(Assign (%s,%s))" $1 $3 }
+      | VAR ASSIGN aexp         { Printf.sprintf "(Assign (\"%s\",%s))" $1 $3 }
       | comm SEQ comm           { Printf.sprintf "(Seq (%s,%s))" $1 $3 }
       | IF bexp THEN comm ELSE comm FI
         { Printf.sprintf "(IfThenElse (%s,%s,%s))" $2 $4 $6 }
